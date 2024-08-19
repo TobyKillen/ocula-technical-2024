@@ -1,6 +1,5 @@
 import datetime
 
-
 class MathFuncs:
     def __init__(self) -> None:
         pass
@@ -22,12 +21,6 @@ class MathFuncs:
         Rounds Latitude or Longitude to 2 decimal places
         """
         return round(cordinate_value, 2)
-    
-    def convert_date_to_numeric(self, date: str) -> str:
-        """
-        Converts Date to Numeric Value
-        """
-        return date
     
     def convert_epoch_to_date(self, epoch: int) -> str:
         """

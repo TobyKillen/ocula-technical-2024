@@ -1,18 +1,53 @@
-import sqlite3
+from sqlalchemy import create_engine, Column, String, Float, DateTime, func, Index, select
+from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.dialects.sqlite import DATETIME
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.sql import func
+
+import uuid
+import datetime
+
+class Weather:
+    tablename = "weather"
+
+    # id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    # city = Column(String, nullable=False)
+    # min_temp = Column(Float, nullable=False)
+    # max_temp = Column(Float, nullable=False)
+    # average_mean_temp = Column(Float, nullable=False)
+    # average_mode_temp = Column(Float, nullable=False)
+    # average_mean_humidity = Column(Float, nullable=False)
+    # average_mode_humidity = Column(Float, nullable=False)
+    # date = Column(DATETIME, nullable=False)
+    # created_at = Column(DATETIME, server_default=func.now(), nullable=False)    
+    # updated_at = Column(DATETIME, server_default=func.now(), nullable=False, onupdate=func.now())
+    # deleted_at = Column(DATETIME, nullable=True)
+
+class HistoricalFetches:
+    tablename = "historical_fetches"
+
+    # id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    # city = Column(String, nullable=False)
+    # date = Column(DATETIME, nullable=False)
+    # hash = Column(String, nullable=False, unique=True)
+    # created_at = Column(DATETIME, server_default=func.now(), nullable=False)
+    # updated_at = Column(DATETIME, server_default=func.now(), nullable=False, onupdate=func.now())
+    # deleted_at = Column(DATETIME, nullable=True)
+
 
 class DatabaseClient:
     def __init__(self) -> None:
-        self.Database = sqlite3.connect("weather.db")
-        # Ideally here I would use an ORM like SQLAlchemy to interact with the database
-
-    class Weather:
-        # UUID, City, Min Temp, Max Temp, Average Mean Temp, Average Mode Temp, Average Humidity, Date, Created At, Updated At, Deleted At
         pass
 
-    class HistoricalFetches:
-        # UUID, City, Date, Created At, Updated At, Deleted At
-        # or
-        # UUID, Hash, Created At, Updated At, Deleted At
-        # Using a hash would allow us to store the hash of the city and date and use that as a unique identifier for quick lookups
-        # This table would store all the historical fetches so we can return the data from the database if it's already been fetched
+    def add_weather_data(self, weather_data: dict):
         pass
+
+    def get_weather_data(self, city: str, date: datetime.date):
+        pass
+
+    def add_historical_fetch(self, city: str, date: datetime.date):
+        pass
+
+    def generate_hash(self, city: str, date: datetime.date) -> str:
+        pass
+

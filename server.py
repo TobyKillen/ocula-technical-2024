@@ -28,6 +28,7 @@ def get_weather_for_city(city: str, date: Optional[str] = None) -> Union[dict, s
             'status': 'error'
         }
 
+@app.get("/weather/{city}/test")
 @app.get("/weather/{city}/{date}/test")
 def test_get_weather_for_city(city: str, date: Optional[str] = None) -> Union[dict, str]:
     # Default date to today if not provided
@@ -35,7 +36,7 @@ def test_get_weather_for_city(city: str, date: Optional[str] = None) -> Union[di
         date = datetime.today().strftime('%Y-%m-%d')
         
     try:
-        weather = WeatherController.get_weather(city, date)
+        weather = WeatherController.test_get_weather(city, date)
         return weather
     except Exception as e:
         return {
