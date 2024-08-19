@@ -2,13 +2,15 @@
 
 ## What I did
 * Created 2 endpoints
-* Added a workflowin Github
+* Added a workflow in Github
 * Unit Tests (PyTest)
   
 ## What I wish I done
 * Cleaned up file types by splitting the network calls from the database calls into different services.
 * Added more complex unit tests to test http func etc. 
 * Built out the entire database client and talked to a SQL Lite Database.
+
+* Properly Implement Date on the endpoint. I was confused by the open weather api's docs. 
 
 ## Further Improvements
 * Implement a check to see if the (City / Date) Pair have been requested before so that we're not using our third-party API call costs. 
